@@ -22,13 +22,44 @@
         android:hint="Nombre"
         android:inputType="text" />
 
-    <!-- EditText para el correo electrónico del empleado -->
+    <!-- EditText para el nombre del empleado -->
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo Electrónico"
-        android:inputType="textEmailAddress" />
+        android:hint="Email"
+        android:inputType="text" />
+
+    <!-- EditText para el correo electrónico del empleado -->
+    <EditText
+        android:id="@+id/editTextCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cantidad"
+        android:inputType="number" />
+
+    <!-- EditText para el nombre del empleado -->
+    <EditText
+        android:id="@+id/editTextDistancia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Distancia"
+        android:inputType="numberDecimal" />
+
+    <!-- EditText para el correo electrónico del empleado -->
+    <EditText
+        android:id="@+id/editTextContrasena"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contrasena"
+        />
+
+    <EditText
+        android:id="@+id/editTextTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Telefono"
+        />
 
     <!-- Botón para guardar los cambios -->
     <Button

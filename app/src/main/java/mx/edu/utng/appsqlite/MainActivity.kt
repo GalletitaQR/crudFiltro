@@ -69,6 +69,11 @@ class MainActivity : AppCompatActivity() {
             putExtra("EMP_ID", employee.id)
             putExtra("EMP_NAME", employee.name)
             putExtra("EMP_EMAIL", employee.email)
+
+            putExtra("EMP_CANTIDAD", employee.cantidad)
+            putExtra("EMP_DISTANCIA", employee.distancia)
+            putExtra("EMP_CONTRASENA", employee.contrasena)
+            putExtra("EMP_TELEFONO", employee.telefono)
             putExtra("POSITION", position) // Enviar la posición
         }
         startActivityForResult(intent, REQUEST_CODE_UPDATE)
@@ -80,14 +85,23 @@ class MainActivity : AppCompatActivity() {
         val name = findViewById<EditText>(R.id.u_name).text.toString()
         val email = findViewById<EditText>(R.id.u_email).text.toString()
 
+        val cantidad = findViewById<EditText>(R.id.u_cantidad).text.toString()
+        val distancia = findViewById<EditText>(R.id.u_distancia).text.toString()
+        val contrasena = findViewById<EditText>(R.id.u_contrasena).text.toString()
+        val telefono = findViewById<EditText>(R.id.u_telefono).text.toString()
+
         val databaseHandler: DatabaseHandler= DatabaseHandler(this)
-        if(id.trim()!="" && name.trim()!="" && email.trim()!=""){
-            val status = databaseHandler.addEmployee(EmpModelClass(Integer.parseInt(id),name, email))
+        if(id.trim()!="" && name.trim()!="" && email.trim()!="" && telefono.trim()!=""){
+            val status = databaseHandler.addEmployee(EmpModelClass(Integer.parseInt(id),name, email, cantidad.toInt(), distancia.toDouble(), contrasena, telefono))
             if(status > -1){
                 Toast.makeText(applicationContext,"record save",Toast.LENGTH_LONG).show()
                 findViewById<EditText>(R.id.u_id).text.clear()
                 findViewById<EditText>(R.id.u_name).text.clear()
                 findViewById<EditText>(R.id.u_email).text.clear()
+                findViewById<EditText>(R.id.u_cantidad).text.clear()
+                findViewById<EditText>(R.id.u_distancia).text.clear()
+                findViewById<EditText>(R.id.u_contrasena).text.clear()
+                findViewById<EditText>(R.id.u_telefono).text.clear()
             }
         }else{
             Toast.makeText(applicationContext,"id or name or email cannot be blank",Toast.LENGTH_LONG).show()
@@ -98,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         val databaseHandler = DatabaseHandler(this)
 
         val empList = databaseHandler.viewEmployee()
-            .map { Employee(it.userId.toString(), it.userName, it.userEmail) }
+            .map { Employee(it.userId.toString(), it.userName, it.userEmail, it.cantidad.toString(), it.distancia.toString(), it.contrasena, it.telefono) }
             .toMutableList()
         Log.d("TIENE O NO","$empList")
 
@@ -127,6 +141,10 @@ class MainActivity : AppCompatActivity() {
         val edtId = dialogView.findViewById(R.id.updateId) as EditText
         val edtName = dialogView.findViewById(R.id.updateName) as EditText
         val edtEmail = dialogView.findViewById(R.id.updateEmail) as EditText
+        val edtcantidad = findViewById(R.id.u_cantidad) as EditText
+        val edtdistancia = findViewById(R.id.u_distancia) as EditText
+        val edtcontrasena = findViewById(R.id.u_contrasena) as EditText
+        val edttelefono = findViewById(R.id.u_telefono) as EditText
 
         dialogBuilder.setTitle("Update Record")
         dialogBuilder.setMessage("Enter data below")
@@ -135,11 +153,16 @@ class MainActivity : AppCompatActivity() {
             val updateId = edtId.text.toString()
             val updateName = edtName.text.toString()
             val updateEmail = edtEmail.text.toString()
+
+            val updateCantidad = edtcantidad.text.toString()
+            val updateDistancia = edtdistancia.text.toString()
+            val updateContrasena = edtcontrasena.text.toString()
+            val updateTelefono = edttelefono.text.toString()
             //creating the instance of DatabaseHandler class
             val databaseHandler: DatabaseHandler= DatabaseHandler(this)
             if(updateId.trim()!="" && updateName.trim()!="" && updateEmail.trim()!=""){
                 //calling the updateEmployee method of DatabaseHandler class to update record
-                val status = databaseHandler.updateEmployee(EmpModelClass(Integer.parseInt(updateId),updateName, updateEmail))
+                val status = databaseHandler.updateEmployee(EmpModelClass(Integer.parseInt(updateId),updateName, updateEmail, updateCantidad.toInt(), updateDistancia.toDouble(),updateContrasena, updateTelefono))
                 if(status > -1){
                     Toast.makeText(applicationContext,"record update",Toast.LENGTH_LONG).show()
                 }
@@ -172,7 +195,7 @@ class MainActivity : AppCompatActivity() {
             val databaseHandler: DatabaseHandler= DatabaseHandler(this)
             if(deleteId.trim()!=""){
                 //calling the deleteEmployee method of DatabaseHandler class to delete record
-                val status = databaseHandler.deleteEmployee(EmpModelClass(Integer.parseInt(deleteId),"",""))
+                val status = databaseHandler.deleteEmployee(deleteId)
                 if(status > -1){
                     Toast.makeText(applicationContext,"record deleted",Toast.LENGTH_LONG).show()
                 }
@@ -197,11 +220,16 @@ class MainActivity : AppCompatActivity() {
             val updatedId = data?.getStringExtra("UPDATED_ID")
             val updatedName = data?.getStringExtra("UPDATED_NAME")
             val updatedEmail = data?.getStringExtra("UPDATED_EMAIL")
+
+            val updatedCantidad = data?.getStringExtra("UPDATED_CANTIDAD")
+            val updatedDistancia = data?.getStringExtra("UPDATED_DISTANCIA")
+            val updatedContrasena = data?.getStringExtra("UPDATED_CONTRASENA")
+            val updatedTelefono = data?.getStringExtra("UPDATED_TELEFONO")
             val position = data?.getIntExtra("POSITION", -1) ?: -1
 
             if (position != -1) {
                 // Crear un nuevo objeto Employee con los datos actualizados
-                val updatedEmployee = Employee(updatedId ?: "", updatedName ?: "", updatedEmail ?: "")
+                val updatedEmployee = Employee(updatedId ?: "", updatedName ?: "", updatedEmail ?: "", updatedCantidad ?: "", updatedDistancia ?: "", updatedContrasena ?: "", updatedTelefono ?: "")
 
                 // Actualizar la lista y notificar al adaptador
                 employeeAdapter.updateEmployeeAtPosition(position, updatedEmployee)

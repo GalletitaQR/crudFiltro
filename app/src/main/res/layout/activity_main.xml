@@ -34,6 +34,7 @@
                 android:layout_marginStart="20dp"
                 android:padding="8dp"
                 android:textSize="16sp"
+                android:inputType="number"
                 android:backgroundTint="#E0E0E0" />
         </TableRow>
 
@@ -69,6 +70,79 @@
                 android:padding="8dp"
                 android:textSize="16sp"
                 android:backgroundTint="#E0E0E0" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Cantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <EditText
+                android:id="@+id/u_cantidad"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:backgroundTint="#E0E0E0"
+                android:inputType="number" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Distancia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <EditText
+                android:id="@+id/u_distancia"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:backgroundTint="#E0E0E0"
+                android:inputType="numberDecimal"/>
+        </TableRow>
+
+
+        <TableRow>
+            <TextView
+                android:text="Contraseña"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <EditText
+                android:id="@+id/u_contrasena"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:backgroundTint="#E0E0E0"
+                android:inputType="numberPassword"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Teléfono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1" />
+
+            <EditText
+                android:id="@+id/u_telefono"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:padding="8dp"
+                android:textSize="16sp"
+                android:backgroundTint="#E0E0E0"
+                android:inputType="phone"/>
         </TableRow>
     </TableLayout>
     <LinearLayout

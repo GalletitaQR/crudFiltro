@@ -12,6 +12,12 @@ class EmployeeDetailActivity : AppCompatActivity() {
     private lateinit var editTextId: EditText
     private lateinit var editTextName: EditText
     private lateinit var editTextEmail: EditText
+
+    private lateinit var editTextCantidad: EditText
+    private lateinit var editTextDistancia: EditText
+    private lateinit var editTextContrasena: EditText
+    private lateinit var editTextTelefono: EditText
+
     private lateinit var btnSave: Button
     private lateinit var btnDelete: Button
     private lateinit var databaseHandler: DatabaseHandler
@@ -30,6 +36,11 @@ class EmployeeDetailActivity : AppCompatActivity() {
         editTextId = findViewById(R.id.editTextId)
         editTextName = findViewById(R.id.editTextName)
         editTextEmail = findViewById(R.id.editTextEmail)
+
+        editTextCantidad = findViewById(R.id.editTextCantidad)
+        editTextDistancia = findViewById(R.id.editTextDistancia)
+        editTextContrasena = findViewById(R.id.editTextContrasena)
+        editTextTelefono = findViewById(R.id.editTextTelefono)
         btnSave = findViewById(R.id.btnSave)
         btnDelete = findViewById(R.id.btnDelete)
 
@@ -38,10 +49,20 @@ class EmployeeDetailActivity : AppCompatActivity() {
         val empName = intent.getStringExtra("EMP_NAME") ?: ""
         val empEmail = intent.getStringExtra("EMP_EMAIL") ?: ""
 
+        val empCantidad = intent.getStringExtra("EMP_CANTIDAD") ?: ""
+        val empDistancia = intent.getStringExtra("EMP_DISTANCIA") ?: ""
+        val empContrasena = intent.getStringExtra("EMP_CONTRASENA") ?: ""
+        val empTelefono = intent.getStringExtra("EMP_TELEFONO") ?: ""
+
         // Cargar datos en los campos de texto
         editTextId.setText(empId)
         editTextName.setText(empName)
         editTextEmail.setText(empEmail)
+
+        editTextCantidad.setText(empCantidad)
+        editTextDistancia.setText(empDistancia)
+        editTextContrasena.setText(empContrasena)
+        editTextTelefono.setText(empTelefono)
 
         // Guardar cambios
         // Guardar cambios
@@ -50,9 +71,14 @@ class EmployeeDetailActivity : AppCompatActivity() {
             val updatedName = editTextName.text.toString()
             val updatedEmail = editTextEmail.text.toString()
 
+            val updatedCantidad = editTextCantidad.text.toString()
+            val updatedDistancia = editTextDistancia.text.toString()
+            val updatedContrasena = editTextContrasena.text.toString()
+            val updatedTelefono = editTextTelefono.text.toString()
+
             // Actualiza la base de datos
             val dbHandler = DatabaseHandler(this)
-            val employee = Employee(updatedId, updatedName, updatedEmail)
+            val employee = EmpModelClass(updatedId.toInt(), updatedName, updatedEmail, updatedCantidad.toInt(), updatedDistancia.toDouble(), updatedContrasena, updatedTelefono)
             dbHandler.updateEmployee(employee)
 
             // Devolver los datos actualizados a la actividad principal
