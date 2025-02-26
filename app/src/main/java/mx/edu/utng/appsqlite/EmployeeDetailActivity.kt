@@ -86,6 +86,11 @@ class EmployeeDetailActivity : AppCompatActivity() {
                 putExtra("UPDATED_ID", updatedId)
                 putExtra("UPDATED_NAME", updatedName)
                 putExtra("UPDATED_EMAIL", updatedEmail)
+
+                putExtra("UPDATED_CANTIDAD", updatedCantidad)
+                putExtra("UPDATED_DISTANCIA", updatedDistancia)
+                putExtra("UPDATED_CONTRASENA", updatedContrasena)
+                putExtra("UPDATED_TELEFONO", updatedTelefono)
                 putExtra("POSITION", intent.getIntExtra("POSITION", -1)) // Enviar la posición
             }
 

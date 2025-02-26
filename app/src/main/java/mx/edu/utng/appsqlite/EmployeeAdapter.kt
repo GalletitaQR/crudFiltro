@@ -49,6 +49,8 @@ class EmployeeAdapter(
         holder.textViewName.text = employee.name
         holder.textViewEmail.text = employee.email
 
+
+
         // 📌 Evita que el adaptador dependa de MainActivity
         holder.itemView.setOnClickListener {
             if (context is MainActivity) {
