@@ -19,7 +19,7 @@
         android:text="Albúm de Canciones"
         android:textSize="24sp"
         android:textColor="#FFFFFF"
-        android:background="#3F51B5"
+        android:background="#043887"
         android:padding="16dp"
         android:gravity="center"
          />
@@ -27,12 +27,13 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#061C38"
         android:stretchColumns="*">
 
         <SearchView
             android:id="@+id/searchView"
-            android:textColor="#FFFFFF"
-            android:background="#206D2C"
+            android:textColor="#000000"
+            android:background="#145F14"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -239,6 +240,7 @@
                 android:inputType="phone"
                 android:layout_gravity="center"
                 android:padding="16dp"
+                android:layout_marginRight="16dp"
                 android:textColorHint="@color/black"
                 android:backgroundTint="#389E38"
                 android:textColor="#212121"
@@ -252,7 +254,7 @@
                     android:layout_height="60dp"
                     android:text="Guardar/Actualizar"
                     android:onClick="onButtonClick"
-                    android:backgroundTint="#872304"
+                    android:backgroundTint="#043887"
                     android:textColor="#FFFFFF" />
         </TableRow>
     </TableLayout>

@@ -3,7 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:layout_margin="0dp"
+    android:fitsSystemWindows="true"
+    android:weightSum="10">
+
+
+    <!-- TextView para ID del empleado -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp"/>
 
     <!-- EditText para ID del empleado -->
     <EditText
@@ -14,6 +26,15 @@
         android:inputType="text"
         android:enabled="false" /> <!-- No editable -->
 
+    <!-- TextView para el nombre del empleado -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"/>
+
     <!-- EditText para el nombre del empleado -->
     <EditText
         android:id="@+id/editTextName"
@@ -22,7 +43,16 @@
         android:hint="Nombre"
         android:inputType="text" />
 
-    <!-- EditText para el nombre del empleado -->
+    <!-- TextView para el correo electrónico del empleado -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- EditText para el correo electrónico del empleado -->
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
@@ -30,7 +60,16 @@
         android:hint="Email"
         android:inputType="text" />
 
-    <!-- EditText para el correo electrónico del empleado -->
+    <!-- TextView para la cantidad -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cantidad"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- EditText para la cantidad -->
     <EditText
         android:id="@+id/editTextCantidad"
         android:layout_width="match_parent"
@@ -38,7 +77,16 @@
         android:hint="Cantidad"
         android:inputType="number" />
 
-    <!-- EditText para el nombre del empleado -->
+    <!-- TextView para la distancia -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Distancia"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- EditText para la distancia -->
     <EditText
         android:id="@+id/editTextDistancia"
         android:layout_width="match_parent"
@@ -46,20 +94,37 @@
         android:hint="Distancia"
         android:inputType="numberDecimal" />
 
-    <!-- EditText para el correo electrónico del empleado -->
+    <!-- TextView para la contraseña -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contraseña"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- EditText para la contraseña -->
     <EditText
         android:id="@+id/editTextContrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contrasena"
-        />
+        android:hint="Contrasena" />
 
+    <!-- TextView para el teléfono -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Telefono"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- EditText para el teléfono -->
     <EditText
         android:id="@+id/editTextTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Telefono"
-        />
+        android:hint="Telefono" />
 
     <!-- Botón para guardar los cambios -->
     <Button
@@ -67,7 +132,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"/>
 
     <!-- Botón para eliminar el empleado -->
     <Button
@@ -76,6 +142,7 @@
         android:layout_height="wrap_content"
         android:text="Eliminar"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/holo_red_light"/>
+        android:backgroundTint="@android:color/holo_red_light"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
